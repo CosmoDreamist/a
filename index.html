@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download PDF</title>
+    <title>View and Download PDF</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             text-align: center;
+            padding-top: 20%;
         }
-        h1 {
-            font-size: 3rem;
-            cursor: pointer;
+        iframe {
+            width: 80%;
+            height: 60vh; /* 适当调整高度 */
+            border: none;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1 onclick="window.location.href='https://github.com/CosmoDreamist/a/raw/main/assets/%E5%BB%BA%E7%AD%91%E7%89%A9%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0.pdf'">
-        Enjoy your journey through outer space
-    </h1>
-</body>
-</html>
+    <h1>Enjoy your journey through outer space</h1>
+
+    <!-- Embed the PDF using iframe -->
+    <iframe src="https://github.com/CosmoDreamist/a/raw/main/assets/%E5%BB%BA%E7%AD%91%E7%89%A9%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0.pdf"></iframe>
+
+    <!-- Download Link -->
+    <a href="https://github.com/CosmoDreamist/a/raw/main/assets/%E5%BB%BA%E7%AD%91%E7%89%A9%E4%B8%89%E
