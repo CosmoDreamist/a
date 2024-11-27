@@ -1,25 +1,39 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View PDF</title>
+    <title>PDF Viewer</title>
+    <!-- 本地引用 PDF.js -->
+    <script src="assets/pdf.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 20%;
-        }
-        iframe {
-            width: 80%;
-            height: 80vh; /* Adjust height according to your preference */
+        #pdf-viewer {
+            width: 100%;
+            height: 100vh;
             border: none;
         }
     </style>
 </head>
 <body>
     <h1>Enjoy your journey through outer space</h1>
-    <!-- Embed the PDF using iframe -->
-    <iframe src="https://github.com/CosmoDreamist/a/raw/main/assets/%E5%BB%BA%E7%AD%91%E7%89%A9%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0.pdf" />
+    <canvas id="pdf-viewer"></canvas>
+    <script>
+        const url = './assets/%E5%BB%BA%E7%AD%91%E7%89%A9%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0.pdf';
+        const canvas = document.getElementById('pdf-viewer');
+        const context = canvas.getContext('2d');
+
+        pdfjsLib.getDocument(url).promise.then((pdf) => {
+            pdf.getPage(1).then((page) => {
+                const viewport = page.getViewport({ scale: 1 });
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext);
+            });
+        });
+    </script>
 </body>
 </html>
